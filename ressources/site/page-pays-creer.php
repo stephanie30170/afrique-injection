@@ -26,7 +26,7 @@
       <input name="country_area" type="number" value="23000" required>
     </label>
     <!-- button -->
-    <input type="submit">
+    <input type="submit" name="submit">
   </form>
 </main>
 

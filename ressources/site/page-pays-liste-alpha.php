@@ -7,7 +7,7 @@
 <?php
   
   $tableau = [];
-  $requete = "SELECT * FROM `country` ORDER BY `country_area`";
+  $requete = "SELECT * FROM `country` ORDER BY `country_name`";
   try {
     $etape = $pdo->prepare($requete);
     $etape->execute();
@@ -20,10 +20,10 @@
 
   foreach ($tableau as $pays) {
     echo "<section>";
-    echo "<h1>" . $pays["country_name"] . "</h1>";
-    echo "<h2>" . $pays["country_flag"] . "</h2>";
+    echo "<h1>" . htmlentities($pays["country_name"]) . "</h1>";
+    echo "<h2>" . htmlentities($pays["country_flag"] ). "</h2>";
     echo "<div>" . number_format($pays["country_area"], 0, ',', ' ') . " km²</div>";
-    echo "<div>" . $pays["country_capital"] . "</div>";
+    echo "<div>" . htmlentities($pays["country_capital"]) . "</div>";
     echo "</section>";
   }
 
